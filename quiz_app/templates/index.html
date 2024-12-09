@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kuis Berhadiah</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>KUIS BERHADIAH</h1>
+
+    {% if score is not none %}
+        <h2>Skor Anda: {{ score }}/{{ total }}</h2>
+
+        {% if score == total %}
+            <h3 style="color: gold;">Selamat! Anda menjawab semua pertanyaan dengan benar! 🎉</h3>
+        {% else %}
+            <h3 style="color: red;">Beberapa jawaban Anda salah. Berikut adalah jawaban yang benar:</h3>
+            <ul>
+                {% for ans in answers %}
+                    <li>
+                        <strong>{{ ans.question }}</strong><br>
+                        Jawaban Anda: {{ ans.selected }}<br>
+                        {% if not ans.correct %}
+                            <span style="color: red;">Jawaban yang benar adalah: {{ ans.correct_answer }}</span>
+                        {% else %}
+                            <span style="color: green;">Jawaban Anda sudah benar!</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <a href="{{ url_for('quiz') }}">Coba Lagi</a>
+    {% else %}
+        <form method="POST">
+            {% for i, q in enumerate(questions) %}
+                <fieldset>
+                    <legend>{{ q.question }}</legend>
+                    {% for option in q.options %}
+                        <label>
+                            <input type="radio" name="q{{ i }}" value="{{ option }}" required>
+                            {{ option }}
+                        </label><br>
+                    {% endfor %}
+                </fieldset>
+            {% endfor %}
+            <button type="submit">Kirim Jawaban</button>
+        </form>
+    {% endif %}
+</body>
+</html>
