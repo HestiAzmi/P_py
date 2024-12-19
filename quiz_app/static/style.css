@@ -1,36 +1,46 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #4335A7 ;
+    background-color: #c9bac7;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
 }
 
 h1 {
-    font-style: normal;
     font-family: 'Times New Roman', Times, serif;
     color: #f3e9e9;
+    margin-bottom: 30px;
+    font-size: 36px;
 }
 
 form {
     display: inline-block;
     text-align: left;
     background-color: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
 }
 
 fieldset {
     margin-bottom: 20px;
+    border: none;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     background-color: #007BFF;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -42,8 +52,69 @@ a {
     margin-top: 20px;
     text-decoration: none;
     color: #007BFF;
+    font-size: 16px;
 }
 
 a:hover {
     text-decoration: underline;
+}
+
+/* Animasi bergerak pada latar belakang */
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+body {
+    background-image: url('path_to_your_cartoon_image.gif'); /* Ganti dengan URL gambar kartun */
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: moveBackground 15s infinite linear;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    border: 3px solid #fff; /* Border untuk kotak utama */
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.4); /* Efek latar belakang transparan di dalam kotak */
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Penambahan kotak untuk tombol akhir */
+.container form {
+    border: 2px solid #007BFF; /* Border untuk form */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+/* Skor container */
+.score-box {
+    background-color: #fff;
+    color: #333;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 250px;
 }
