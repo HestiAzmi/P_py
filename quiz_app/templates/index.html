@@ -9,6 +9,7 @@
     <h1>KUIS BERHADIAH</h1>
 
     {% if score is not none %}
+    <div class="score-container">
         <h2>Skor Anda: {{ score }}/{{ total }}</h2>
 
         {% if score == total %}
@@ -31,6 +32,7 @@
         {% endif %}
 
         <a href="{{ url_for('quiz') }}">Coba Lagi</a>
+        </div>
     {% else %}
         <form method="POST">
             {% for i, q in enumerate(questions) %}
